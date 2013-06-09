@@ -31,7 +31,7 @@ function addContributor() {
     $container.append($checkbox);
     $container.append($checkbox_label);
 
-    $('#contributors').append($container);
+    $container.hide().appendTo($('#contributors')).show('fast');
 }
 
 function calculate() {

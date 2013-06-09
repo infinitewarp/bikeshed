@@ -2,6 +2,7 @@ $nearBlack: #111;
 $darkGrey: #444;
 $mediumGrey: #888;
 $lightGrey: #ddd;
+$springgreen: rgb(0, 255, 127); // "springgreen" is an html color, but this is a reminder as to its value
 
 * {
     -moz-box-sizing: border-box;
@@ -37,15 +38,19 @@ h4, h5, h6 {
 }
 
 @mixin rounded($radius) {
-    -webkit-border-radius: $radius;
-       -moz-border-radius: $radius;
-            border-radius: $radius;
+    // Do I really want to support browsers so old they need the vendor prefix here?
+    // Modern versions of Chrome and Firefox don't need these!
+    // -webkit-border-radius: $radius;
+    // -moz-border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin box-shadow($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
-  -webkit-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
-     -moz-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
-          box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+    // Do I really want to support browsers so old they need the vendor prefix here?
+    // Modern versions of Chrome and Firefox don't need these!
+    // -webkit-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+    // -moz-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+    box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
 }
 
 .inset {
@@ -82,7 +87,7 @@ input[type="number"] {
         outline: 0;
         // outline: thin dotted \9;
         // Seen in bootstrap, is the above line required for IE?
-        @include box-shadow(0, 0, 0.3em, 0.1em, springgreen);
+        @include box-shadow(0, 0, 3px, 1px, $springgreen);
     }
 }
 
@@ -97,6 +102,15 @@ input[type="checkbox"] {
 
 #minutes {
     width: 4.25em;
+}
+
+#add_contributor {
+    margin-left: 19.5em;
+    margin-top: 1.5em;
+}
+
+input[id^='salary_'] {
+    width: 6em;
 }
 
 #cost {

@@ -20,6 +20,32 @@ function numify(input) {
     return isNaN(output) ? 0.0 : output;
 }
 
+function addContributor() {
+    var number = $('.contributor').length + 1;
+    var salary_id = 'salary_' + number;
+    var checkbox_id = 'show_' + salary_id;
+    $container = $('<div />')
+        .prop('class', 'contributor');
+    $name = $('<label />')
+        .prop('for', salary_id)
+        .text('Annual Gross Salary #' + number);
+    $salary = $('<input type="password" placeholder="$&pound;&euro;" />')
+        .prop('id', salary_id)
+        .change(function() { calculate(); })
+        .keyup(function() { calculate(); });
+    $checkbox_label = $('<label />')
+        .prop('for', checkbox_id)
+        .text('reveal this amount');
+    $checkbox = $('<input type="checkbox" />')
+        .prop('id', checkbox_id);
+    $container.append($name);
+    $container.append($salary);
+    $container.append($checkbox);
+    $container.append($checkbox_label);
+
+    $('#contributors').append($container);
+}
+
 function calculate() {
     var total_annual = Number(0.0);
     $("input[id^=salary_]").each(function() {
@@ -35,5 +61,8 @@ function calculate() {
 $(document).ready(function() {
     setupCheckboxesOnChange();
     setupInputsOnChange();
+    // start with default two contributors
+    addContributor();
+    addContributor();
     calculate();
 });

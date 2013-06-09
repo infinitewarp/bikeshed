@@ -1,20 +1,3 @@
-function setupCheckboxesOnChange() {
-    $("input[type='checkbox'][id^='show_salary_']").change( function() {
-        var input_name = '#' + $(this).prop('id').slice('show_'.length);
-        var new_type = $(this).prop('checked') ? 'text' : 'password';
-        $(input_name).get(0).type = new_type;
-    });
-}
-
-function setupInputsOnChange() {
-    $("input[id^='salary_'], input[id='minutes']").change( function() {
-        calculate();
-    });
-    $("input[id^='salary_'], input[id='minutes']").keyup( function() {
-        calculate();
-    });
-}
-
 function numify(input) {
     var output = Number((input).replace(/[^0-9\.]+/g,""));
     return isNaN(output) ? 0.0 : output;
@@ -37,7 +20,12 @@ function addContributor() {
         .prop('for', checkbox_id)
         .text('reveal this amount');
     $checkbox = $('<input type="checkbox" />')
-        .prop('id', checkbox_id);
+        .prop('id', checkbox_id)
+        .change(function() {
+            var input_name = '#' + $(this).prop('id').slice('show_'.length);
+            var new_type = $(this).prop('checked') ? 'text' : 'password';
+            $(input_name).get(0).type = new_type;
+        });
     $container.append($name);
     $container.append($salary);
     $container.append($checkbox);
@@ -59,10 +47,16 @@ function calculate() {
 }
 
 $(document).ready(function() {
-    setupCheckboxesOnChange();
-    setupInputsOnChange();
+    $("#minutes")
+        .change(function() {
+            calculate();
+        })
+        .keyup(function() {
+            calculate();
+        });
     // start with default two contributors
     addContributor();
     addContributor();
+    // preload calculation once
     calculate();
 });

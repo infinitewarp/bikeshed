@@ -1,0 +1,106 @@
+$nearBlack: #111;
+$darkGrey: #444;
+$mediumGrey: #888;
+$lightGrey: #ddd;
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: $darkGrey;
+    font-family: Georgia, Palatino, 'Palatino Linotype', serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    width: 45em;
+    margin: 10px auto;
+    padding: 1em;
+}
+
+::selection {
+    background: rgba(0, 255, 128, 0.25);
+    }
+// Firefox still need -moz on selection after how many years?
+::-moz-selection {
+    background: rgba(0, 255, 128, 0.25);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: $nearBlack;
+    line-height: 1em;
+}
+h4, h5, h6 {
+    font-weight: bold;
+}
+
+@mixin rounded($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin box-shadow($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
+  -webkit-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+     -moz-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+          box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+.inset {
+    border: 1px solid $lightGrey;
+    @include rounded(5px);
+    padding: 1em;
+}
+
+// .columns {
+//     -webkit-column-count: 2;
+//     -moz-column-count: 2;
+//     column-count: 2;
+// }
+
+.before-label {
+    width: 11em;
+    text-align: right;
+    display: inline-block;
+}
+
+input[type="password"],
+input[type="text"],
+input[type="number"] {
+    font-size: 1.0em;
+    padding: 0.5em;
+    margin: 0.25em 0.5em;
+    border: 1px solid $mediumGrey;
+    @include rounded(3px);
+
+    &:focus {
+        transition: linear 0.1s;
+        border-color: green;
+        outline: 0;
+        // outline: thin dotted \9;
+        // Seen in bootstrap, is the above line required for IE?
+        @include box-shadow(0, 0, 0.3em, 0.1em, springgreen);
+    }
+}
+
+input[type="checkbox"] {
+    margin: 0.5em;
+    // TODO Figure out if styling the checkbox focus halo is doable within reason.
+}
+
+.result {
+  // font-size: 1.5em;
+}
+
+#minutes {
+    width: 4.25em;
+}
+
+#cost {
+  font-size: 2.0em;
+  font-weight: 500;
+  // text-decoration: underline;
+  // font-style: italic;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Bikeshed Calculator</title>
+        <script src="js/jquery-2.0.2.min.js"></script>
+        <script src="js/calculator.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <h1>Bikeshed Calculator</h1>
+        <p>
+            The bikeshed calculator shows you how much money you cost the company by "bikeshedding" a particular discussion. This takes a list of gross annual salaries (obscured by default so you don't expose your wages to others) and a length of time for the discussion.
+        </p>
+        <p>
+            These calculations assume that your salaries pay for 40 hours/week for 50 weeks/year and do not account for taxes or withholdings; they are meant to describe the cost to the company.
+        </p>
+        <h2>Elapsed Time</h2>
+        <div class="inset">
+            <span class="before-label">This digression took</span> <input type="number" size="5" placeholder="0" id="minutes"> minutes.<br>
+        </div>
+        <h2>Contributors</h2>
+        <div class="inset">
+            <span class="before-label">Annual Gross Salary 1</span>
+            <input type="password" size="10" placeholder="$&pound;&euro;" id="salary_1">
+            <input type="checkbox" id="show_salary_1">
+            <label for="show_salary_1">reveal this amount</label><br>
+
+            <span class="before-label">Annual Gross Salary 2</span>
+            <input type="password" size="10" placeholder="$&pound;&euro;" id="salary_2">
+            <input type="checkbox" id="show_salary_2">
+            <label for="show_salary_2">reveal this amount</label><br>
+
+            <span class="before-label">Annual Gross Salary 3</span>
+            <input type="password" size="10" placeholder="$&pound;&euro;" id="salary_3">
+            <input type="checkbox" id="show_salary_3">
+            <label for="show_salary_3">reveal this amount</label><br>
+
+            <span class="before-label">Annual Gross Salary 4</span>
+            <input type="password" size="10" placeholder="$&pound;&euro;" id="salary_4">
+            <input type="checkbox" id="show_salary_4">
+            <label for="show_salary_4">reveal this amount</label><br>
+
+        </div>
+        <h2>The Cost</h2>
+        <div class="inset result">
+            Your discussion just cost the company <span id="cost">0.00</span> big ones.
+        </div>
+    </body>
+</html>

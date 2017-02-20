@@ -3,4 +3,5 @@
 .tox
 .cache
 css/main.css
+css/main-old.css
 node_modules

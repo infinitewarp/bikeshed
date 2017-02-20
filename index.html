@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <title>Bikeshed Calculator</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Calculate how much it costs to spend time bikeshedding a particular topic.">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="icon" href="images/bikeshed.png">
+    </head>
+    <body>
+        <h1>Bikeshed Calculator 🚴</h1>
+        <p>
+            The bikeshed calculator shows you how much money you cost the company by <a href="https://en.wiktionary.org/wiki/bikeshedding">bikeshedding</a> a particular discussion or by having a meeting that didn't produce anything useful.
+        </p>
+        <div id="calculator"></div>
+        <h2>How does this work? 🎉</h2>
+        <p>
+            Calculations assume that your gross annual salaries pay for the US average of 40 hours/week for 46.3 weeks/year. The full 52-week year is reduced by 5.7 because the average worker gets 1.7 weeks of holidays, 2 weeks of vacation, and 2 weeks of sick leave. (<a href="https://www.bls.gov/news.release/ebs.t05.htm">source</a>)
+        </p>
+        <p>
+            If "include additional overhead costs" is enabled, the cost calculation includes: 6.2% on the first $113,700/person for Social Security, 1.45% for Medicare, 2.8% on the first $16,488/person for unemployment insurance, 2.5% for 401(k) matching, and $10,119/person for healthcare. (<a href="http://money.cnn.com/2013/02/28/smallbusiness/salary-benefits/">source</a>)
+        </p>
+        <p>
+            The default salary ($107,100) is the mean of the US average salaries for
+            <a href="https://www.glassdoor.com/Salaries/company-salaries.htm?sc.keyword=software+engineer" target="_blank">Software Engineer</a>, <!-- ($95,195) -->
+            <a href="https://www.glassdoor.com/Salaries/company-salaries.htm?sc.keyword=software+qa+engineer" target="_blank">Software QA Engineer</a>, <!-- ($78,155) -->
+            <a href="https://www.glassdoor.com/Salaries/company-salaries.htm?sc.keyword=senior+software+engineer" target="_blank">Senior Software Engineer</a>, <!-- ($114,768) -->
+            <a href="https://www.glassdoor.com/Salaries/company-salaries.htm?sc.keyword=senior+software-qa+engineer" target="_blank">Senior Software QA Engineer</a>, <!-- ($108,385) -->
+            and
+            <a href="https://www.glassdoor.com/Salaries/company-salaries.htm?sc.keyword=software+engineer+manager" target="_blank">Software Engineer Manager</a> <!-- ($139,000) -->
+            in 2017 according to Glassdoor.com.
+        </p>
+        <script src="js/calculator-app.js"></script>
+    </body>
+</html>
